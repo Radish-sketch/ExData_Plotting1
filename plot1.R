@@ -19,15 +19,18 @@ s1<-grep("[1-2]/2/2007", readLines(".\\household_power_consumption.txt"))
 
 N_rows=length(s1)
 
-data<-read.table(".\\household_power_consumption.txt",sep=";",header=TRUE, skip=s1[1]-3, nrows=N_rows+1)
+data<-read.table(".\\household_power_consumption.txt",sep=";",
+                 header=TRUE, skip=s1[1]-3, nrows=N_rows+1)
 names(data)<-names(testdata)
 
 
 data1<-data[data[,1]=="1/2/2007"|data[,1]=="2/2/2007",]
 
-data1$Date<-as.Date(data1$Date,tryFormats = c("%d/%m/%Y"))
+# data1$Date<-as.Date(data1$Date,tryFormats = c("%d/%m/%Y"))
 
 # Save the data to file so that don't need to download again or check again
+
+# write.table(data1,".\\two_days_data.txt", sep=";" ,row.names=FALSE)
 
 
 
