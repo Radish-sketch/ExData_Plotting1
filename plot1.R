@@ -39,6 +39,7 @@ data1<-data[data[,1]=="1/2/2007"|data[,1]=="2/2/2007",]
 png(file="plot1.PNG",width=480, height=480)
 
 # plot Global Active Power
+par(mfrow=c(1,1))
 
 hist(data1$Global_active_power,col="red",
      xlab="Glowbal Active Power (kilowatts)",
